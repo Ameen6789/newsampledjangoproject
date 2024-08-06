@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav {
+            width: 100%;
+        }
+        nav div{
+            display: flex;
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 60px;
+        }
+        nav p{
+            margin-right: 20px;
+        }
+        form{
+            width: 400px;
+            justify-content: center;
+            background-color: burlywood;
+            padding: 80px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+           
+        }
+        input[type=submit]{
+            width: 100px;
+
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <p><a href="/teachereditprofile/{{data.teacher_id_id}}">EDIT PROFILE</a></p>
+            <p><a href="/teacherviewstudent">VIEW STUDENTS</a></p>
+            <p><a href="/logout">LOGOUT</a></p>
+        </div>
+    </nav>
+    <form action="/teacherupdateprofile/{{edit.teacher_id_id}}" method="post">
+        {% csrf_token %}
+        <h1>Update Details</h1>
+        <div>        
+            FIRST NAME: <input type="text" placeholder="FIRST NAME" name="first_name" value="{{edit.teacher_id.first_name}}"><br><br>
+        </div>
+        <div>
+            LAST NAME: <input type="text" placeholder="LAST NAME" name="last_name" value="{{edit.teacher_id.last_name}}"><br><br>
+
+        </div>
+
+        <div>
+            ADDRESS: <input type="text" placeholder="ADDRESS" name="address" value="{{edit.address}}"><br><br>
+
+        </div>
+        <div>
+            EMAIL: <input type="email" placeholder="EMAIL" name="email" value="{{edit.teacher_id.email}}"><br><br>
+
+        </div>
+        <div>
+            PHONE NUMBER: <input type="number" placeholder="PHONE NUMBER" name="phone_number" value="{{edit.phone_number}}"><br><br>
+
+        </div>
+
+        <div>
+            SALARY: <input type="number" placeholder="SALARY" name="salary" value="{{edit.salary}}"><br><br>
+
+        </div>
+        <div>
+            EXPERIENCE: <input type="number" placeholder="experience" name="experience" value="{{edit.experience}}"><br><br>
+
+        </div>
+        <input type="submit" value="UPDATE">
+    </form>
+</body>
+</html>

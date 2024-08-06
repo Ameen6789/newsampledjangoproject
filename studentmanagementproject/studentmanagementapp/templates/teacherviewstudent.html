@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,th{
+            border-collapse: collapse;
+            border: 2px solid blue;
+            
+        }
+        table{
+            width: 100%;
+        }
+        nav{
+        width: 100%;
+        }
+        nav div{
+            display: flex;
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 30px;
+        }
+        nav p{
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <p><a href="/teachereditprofile/{{id}}">EDIT PROFILE</a></p>
+            <p><a href="/teacherviewstudent">VIEW STUDENTS</a></p>
+            <p><a href="/logout">LOGOUT</a></p>
+        </div>
+    </nav>
+    <table>
+        <tr>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>EMAIL</th>
+            <th>ADDRESS</th>
+            <th>GUARDIAN</th>
+            <th>PHONE NUMBER</th>
+            
+            
+        </tr>
+        {% for i in view %}
+        <tr>
+            <td>{{i.student_id.first_name}}</td>
+            <td>{{i.student_id.last_name}}</td>
+            <td>{{i.student_id.email}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.guardian}}</td>
+            <td>{{i.phone_number}}</td>
+            
+            
+            
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
